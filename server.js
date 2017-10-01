@@ -3,6 +3,7 @@ const express = require('express');
 const hbs = require("hbs");
 
 var app = express();
+const port = process.env.PORT||3000;
 
 app.set('view engine','hbs');
 hbs.registerPartials(__dirname+'/views/Partials');
@@ -34,4 +35,4 @@ app.get("/bad",(req,rsp)=>{
   rsp.send({id:10,message:"This is my JSON data"});
 });
 
-app.listen(3000,()=>{console.log("Server is up and running");});
+app.listen(port,()=>{console.log(`Server is up and running at port: ${port}`);});
