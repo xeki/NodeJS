@@ -27,12 +27,16 @@ app.get('/',(req,res)=>{
 res.render('home.hbs',{pageTitle:'Home Page',welcomeMessage:'Welcome to the home page :D'} );
 });
 
-app.get("/about",(req,rsp)=>{
-  rsp.render('about.hbs',{pageTitle:'About Page'});
+app.get("/about",(req,res)=>{
+  res.render('about.hbs',{pageTitle:'About Page'});
 });
 
-app.get("/bad",(req,rsp)=>{
-  rsp.send({id:10,message:"This is my JSON data"});
+app.get("/bad",(req,res)=>{
+  res.send({id:10,message:"This is my JSON data"});
+});
+
+app.get("/project",(req,res)=>{
+  res.render("project.hbs",{pageTitle:'Project Page', message:"This is going to serve as a project page"});
 });
 
 app.listen(port,()=>{console.log(`Server is up and running at port: ${port}`);});
